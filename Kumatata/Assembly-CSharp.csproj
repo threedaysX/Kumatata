@@ -52,6 +52,9 @@
     <UnityVersion>2018.4.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.0f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -60,8 +63,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MainControl\CircleClick.cs" />
-    <Compile Include="Assets\Scripts\MainControl\EatFood.cs" />
+    <Compile Include="Assets\Scripts\Bears\BearEat.cs" />
+    <Compile Include="Assets\Scripts\Bears\BearManager.cs" />
+    <Compile Include="Assets\Scripts\MainControl\CircleState.cs" />
+    <Compile Include="Assets\Scripts\MainControl\CircleStateManager.cs" />
+    <Compile Include="Assets\Scripts\MainControl\LevelControl\GenerateBears.cs" />
+    <Compile Include="Assets\Scripts\MainControl\LevelControl\GeneratePlayerFoodBag.cs" />
+    <Compile Include="Assets\Scripts\MainControl\LevelControl\LevelController.cs" />
+    <Compile Include="Assets\Scripts\MainControl\MusicControl\AudioProcessor.cs" />
+    <Compile Include="Assets\Scripts\MainControl\MusicControl\Beat.cs" />
+    <Compile Include="Assets\Scripts\MainControl\MusicControl\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\MainControl\PlayerFoodControl\CallEatFood.cs" />
+    <Compile Include="Assets\Scripts\MainControl\PlayerFoodControl\FoodController.cs" />
+    <Compile Include="Assets\Scripts\MainControl\PlayerFoodControl\TossBearFood.cs" />
+    <Compile Include="Assets\Scripts\Music\Model\BeatHintModel.cs" />
+    <Compile Include="Assets\Scripts\Music\Model\GenerateBeatHint.cs" />
+    <Compile Include="Assets\Scripts\Music\Model\MusicGenerator.cs" />
+    <Compile Include="Assets\Scripts\Music\Model\MusicModel.cs" />
+    <Compile Include="Assets\Scripts\MusicEditor\GenerateMusicTimeLine.cs" />
+    <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
+    <None Include="Assets\Shader\Outline2.shader" />
+    <None Include="Assets\Shader\Outline.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/User/Desktop/University/自製遊戲/Git-Kumatata/Kumatata/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
