@@ -53,6 +53,7 @@ public class CircleState : MonoBehaviour
             target.transform.SetParent(bearManager.GetChildObjectByName("BearFoodBag").transform);
 
             // 兩隻熊同時碰到同個食物 要怎麼處理，目前想法 開個共同管理 入Queue 根據距離中心遠近，近的就能搶到食物。
+            // 若相同距離，則比較餓的會先吃
         }
     }
 }

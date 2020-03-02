@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,13 +23,7 @@ public class MusicGenerator : MonoBehaviour
     void Start()
     {
         // 根據(選單可選歌)名稱，去讀各種音樂譜面檔案至 musicItems   
-        musicItems = new List<MusicModel>
-        {
-            new MusicModel(0, 0, 3, MusicModel.ClickSide.LeftSide),
-            new MusicModel(0, 0, 5, MusicModel.ClickSide.LeftSide),
-            new MusicModel(0, 0, 7, MusicModel.ClickSide.LeftSide),
-            new MusicModel(0, 0, 7, MusicModel.ClickSide.RightSide),
-        };
+        musicItems = GetMusicMap();
 
         ResetTimerCircle();
         LoadMusicWithTag(tagName: "currentMusic");
@@ -59,12 +54,29 @@ public class MusicGenerator : MonoBehaviour
 
     private void AdjustTimerCircle()
     {
-        timerCircle.fillAmount = Mathf.Clamp(timer, 0, 100); 
+        var musicTotalLength = currentMusic.clip.length;
+        // 依照目前時間占比，調整讀取條。
+        timerCircle.fillAmount = Mathf.Clamp(timer / musicTotalLength, 0, 1); 
     }
 
     private void ResetTimerCircle()
     {
         timerCircle.fillAmount = 0;
         timer = 0;
+    }
+
+    /// <summary>
+    /// 點擊改成 時間到就觸發熊飢餓(飢餓速度與關卡難度有關，皆正常計算)，並在熊頭上有個觸發的特效。 
+    /// </summary>
+    /// <returns></returns>
+    public List<MusicModel> GetMusicMap()
+    {
+        return new List<MusicModel>
+        {
+            new MusicModel(new TimeSpan(0, 0, 3), MusicModel.ClickSide.LeftSide),
+            new MusicModel(new TimeSpan(0, 0, 5), MusicModel.ClickSide.LeftSide),
+            new MusicModel(new TimeSpan(0, 0, 7), MusicModel.ClickSide.LeftSide),
+            new MusicModel(new TimeSpan(0, 0, 9), MusicModel.ClickSide.RightSide),
+        };
     }
 }

@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class MusicModel
 {
-    public int Hours { get; set; }
-    public int Minutes { get; set; }
-    public int Seconds { get; set; }
+    public TimeSpan TimePoint { get; set; }
 
     /// <summary>
     /// 滑鼠點擊的方式 (左鍵or右鍵)
@@ -16,11 +15,9 @@ public class MusicModel
         RightSide = 1
     }
 
-    public MusicModel(int hours, int minutes, int seconds, ClickSide clickSide)
+    public MusicModel(TimeSpan timePoint, ClickSide clickSide)
     {
-        Hours = hours;
-        Minutes = minutes;
-        Seconds = seconds;
+        TimePoint = timePoint;
         MouseClickSide = clickSide;
     }
 }

@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Music\Model\MusicGenerator.cs" />
     <Compile Include="Assets\Scripts\Music\Model\MusicModel.cs" />
     <Compile Include="Assets\Scripts\MusicEditor\GenerateMusicTimeLine.cs" />
+    <Compile Include="Assets\Scripts\MusicEditor\SaveTools.cs" />
     <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
     <None Include="Assets\Shader\Outline2.shader" />
     <None Include="Assets\Shader\Outline.shader" />
