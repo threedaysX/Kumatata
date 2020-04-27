@@ -21,9 +21,8 @@ public class LevelController : MonoBehaviour
     private void GetMaxBearsCount()
     {
         int tempCcount = 0;
-        var rootObj = SceneManager.GetActiveScene().GetRootGameObjects();
-        foreach (GameObject child in rootObj.Where(x => x.tag.Equals("Bear") && 
-                                                        x.gameObject.activeSelf))
+        var rootObj = GameObject.FindGameObjectsWithTag("Bear");
+        foreach (GameObject child in rootObj.Where(x => x.gameObject.activeSelf))
         {
             tempCcount++;
         }

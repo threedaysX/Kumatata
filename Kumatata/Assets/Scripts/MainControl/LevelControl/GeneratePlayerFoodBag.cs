@@ -9,7 +9,6 @@ public class GeneratePlayerFoodBag : MonoBehaviour
 
     void Awake()
     {
-        
         StartGeneratePlayerFoodBag();
     }
 

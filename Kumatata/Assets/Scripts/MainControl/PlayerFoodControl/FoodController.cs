@@ -23,7 +23,6 @@ public class FoodController : Singleton<FoodController>
     private void Start()
     {
         playerFoodList = GetPlayerFoodBagList();
-        ReloadPlayerFoodBag();
     }
 
     public List<Transform> GetPlayerFoodBagList()

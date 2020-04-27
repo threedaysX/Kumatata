@@ -9,6 +9,7 @@ TagManager:
   - Bear
   - FoodArea
   - BearFood
+  - CurrentMusic
   layers:
   - Default
   - TransparentFX

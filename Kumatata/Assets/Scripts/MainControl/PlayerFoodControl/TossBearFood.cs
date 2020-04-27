@@ -9,13 +9,11 @@ public class TossBearFood : MonoBehaviour
     public UnityEvent onPlayerTossBearFood;
     Ray ray;
     RaycastHit hit;
-    FoodController foodController;
     CircleStateManager circleStateManager;
 
     private void Start()
     {
         bearFood = Resources.Load<GameObject>("Prefab/BearFood");
-        foodController = FoodController.Instance;
         circleStateManager = CircleStateManager.Instance;
     }
 
@@ -41,26 +39,20 @@ public class TossBearFood : MonoBehaviour
 
     private void TossFoodOnArea()
     {
-        if (foodController.CheckPlayerFoodBag())
-        {
-            var cloneBearFood = Instantiate(bearFood, hit.point, Quaternion.identity);
-            cloneBearFood.transform.SetParent(GameObject.FindGameObjectWithTag("FoodArea").transform);
+        var cloneBearFood = Instantiate(bearFood, hit.point, Quaternion.identity);
+        cloneBearFood.transform.SetParent(GameObject.FindGameObjectWithTag("FoodArea").transform);
 
-            foodController.TakeFoodOutFromPlayerBag();
-            onPlayerTossBearFood.Invoke();
-        }
+        onPlayerTossBearFood.Invoke();
     }
 
     private void TossFoodOnBearHead()
     {
-        if (!circleStateManager.CheckFoodExists(hit.collider.gameObject) &&
-            foodController.CheckPlayerFoodBag())
+        if (!circleStateManager.CheckFoodExists(hit.collider.gameObject))
         {
             var cloneBearFood = Instantiate(bearFood, hit.point, Quaternion.identity);
             cloneBearFood.transform.SetParent(hit.collider.gameObject.transform.parent.Find("BearFoodBag"));
 
             circleStateManager.ChangeFoodState(hit.collider.gameObject, CircleState.FoodCircleState.Filled);
-            foodController.TakeFoodOutFromPlayerBag();
             onPlayerTossBearFood.Invoke();
         }
     }

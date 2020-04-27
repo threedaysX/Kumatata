@@ -14,7 +14,7 @@ public class CallEatFood : MonoBehaviour
 
     private void Start()
     {
-        onPlayerCallToEat.AddListener(FoodController.Instance.ReloadPlayerFoodBag);
+
     }
 
     void Update()

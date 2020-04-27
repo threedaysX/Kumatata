@@ -73,7 +73,7 @@ public class BearEat : MonoBehaviour
             transform.Rotate(rotation, rotation, rotation);
             yield return null;
         }
-        transform.eulerAngles = new Vector3(0, 0, 0);
+        transform.eulerAngles = new Vector3(0, 180, 0);
         callBack?.Invoke();
     }
 }
